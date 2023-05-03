@@ -1,0 +1,335 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    {% if request.user.profile.is_complete_profile %}
+        {% if enterprise %}
+
+            <div class="header bg-gradient-primary pb-7 pt-2 pt-md-4">
+                <div class="container-fluid">
+                    <div class="header-body">
+                        <!-- Card stats -->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid mt--6">
+                <div class="row mt-5">
+                    <div class="col-xl-12 mb-xl-0">
+                        <div class="card shadow">
+                            <div class=" row mr-2 ml-2 mb-4">
+                                {% if enterprise.status  == "approved" %}
+                                    <div class="alert alert-success  col-xl-12 p-3 mb-5 pending-alert font-weight-bold" role="alert">
+                                        <a id="close-alert" class="close_button_picture_modal"> &times;</a>
+
+                                        <h3 class="text-white"> Enterprise Status:</h3>
+                                        Your enterprise approved by admin
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <div class="row bg-faded">
+                                            <div class="col-4 mx-auto text-center">
+                                                <img style="max-width: 250px" src="/{{ enterprise.logo }}">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="name">
+                                                            Name</label>
+                                                        <P>{{ enterprise.name }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="website">
+                                                            Website</label>
+                                                        <P>{{ enterprise.website }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="tag_line">
+                                                            Tagline</label>
+                                                        <P>{{ enterprise.tag_line }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="tax_id">
+                                                            TAX ID</label>
+                                                        <P>{{ enterprise.tax_id }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-10">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label"
+                                                               for="description">Description</label>
+                                                        <P>{{ enterprise.description }}</P>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <hr class="my-4"/>
+                                            <!-- Address -->
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="website">
+                                                            Phone</label>
+                                                        <P>{{ enterprise.phone }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="zip_code">
+                                                            Zip code</label>
+                                                        <P>{{ enterprise.zip_code }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="name">
+                                                            Country</label>
+                                                        <P>{{ enterprise.country }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="website">
+                                                            State/Province</label>
+                                                        <P>{{ enterprise.state }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="name">
+                                                            City</label>
+                                                        <P>{{ enterprise.city }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label"
+                                                           for="address">Address</label>
+                                                    <P>{{ enterprise.address }}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Description -->
+                                    </div>
+                                {% elif enterprise.status == 'pending' %}
+                                    <div class="alert alert-info col-xl-12 p-3 mb-5 font-weight-bold" role="alert"
+                                         style="color: #5f5f5f">
+                                        <h3> Enterprise Status:</h3>
+
+                                        Your enterprise is currently inactive and under review. We are going to inform
+                                        you about the result via your email. Thank you for your patience and do not
+                                        hesitate to contact our <a> support </a> team for any further questions.
+                                    </div>
+                                    <div class="col-md-12 mt-3">
+                                        <div class="row bg-faded">
+                                            <div class="col-4 mx-auto text-center">
+                                                <img style="max-width: 250px" src="/{{ enterprise.logo }}">
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="name">
+                                                            Name</label>
+                                                        <P>{{ enterprise.name }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="website">
+                                                            Website</label>
+                                                        <P>{{ enterprise.website }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="tag_line">
+                                                            Tagline</label>
+                                                        <P>{{ enterprise.tag_line }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="tax_id">
+                                                            TAX ID</label>
+                                                        <P>{{ enterprise.tax_id }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label"
+                                                               for="description">Description</label>
+                                                        <P>{{ enterprise.description }}</P>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="zip_code">
+                                                            Status</label>
+                                                        <P>{% if enterprise.active %} Active
+                                                        {% else %} Inactive
+                                                        {% endif %}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="my-4"/>
+                                            <!-- Address -->
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="website">
+                                                            Phone</label>
+                                                        <P>{{ enterprise.phone }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="zip_code">
+                                                            Zip code</label>
+                                                        <P>{{ enterprise.zip_code }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="name">
+                                                            Country</label>
+                                                        <P>{{ enterprise.country }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="website">
+                                                            State/Province</label>
+                                                        <P>{{ enterprise.state }}</P>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="name">
+                                                            City</label>
+                                                        <P>{{ enterprise.city }}</P>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label"
+                                                           for="address">Address</label>
+                                                    <P>{{ enterprise.address }}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Description -->
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if  enterprise.status == "rejected" %}
+                <div class="container-fluid mt--7">
+                <div class="row mt-5">
+                    <div class="col-xl-12 mb-xl-0 mb-5">
+                        <div class="card shadow">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    <div class="alert alert-danger col-xl-12 pending-alert font-weight-bold" role="alert">
+                                    <a id="close-alert" class="close_button_picture_modal"> &times;</a>
+                                    <h3 class="text-white"> Enterprise Status:</h3>
+                                    Your enterprise rejected by Admin please create another enterprise
+                                </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Create Enterprise</h5>
+                                    <p class="card-text">You have not yet a registered enterprise
+                                        Click the button below to create your own enterprise</p>
+                                    <a class="btn btn-primary" type="button" href="{% url 'enterprise_create' %}">
+                                        create enterprise
+                                    </a>
+                                </div>
+                                <div class="card-footer text-muted"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8"></div>
+            <div class="container-fluid mt--7">
+            <div class="row mt-5">
+                <div class="col-xl-12 mb-xl-0 mb-5">
+                    <div class="card shadow">
+                        <div class="card text-center">
+                            <div class="card-header">
+                                Make your own Enterprise
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Create Enterprise</h5>
+                                <p class="card-text">You have not yet a registered enterprise
+                                    Click the button below to create your own enterprise</p>
+                                <a class="btn btn-primary" type="button" href="{% url 'enterprise_create' %}">
+                                    create enterprise
+                                </a>
+                            </div>
+                            <div class="card-footer text-muted"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include "includes/footer.html" %}
+        {% endif %}
+    {% else %}
+        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8"></div>
+        <div class="container-fluid mt--7">
+        <div class="row mt-5">
+            <div class="col-xl-12 mb-xl-0 mb-5">
+                <div class="card shadow">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Complete Your Profile
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> Your profile is not complete please complete your profile</p>
+                        </div>
+                        <div class="card-footer text-muted"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+    <script>
+        $('#close-alert').click(function () {
+            $(".pending-alert").addClass('d-none')
+        })
+    </script>
+{% endblock javascripts %}

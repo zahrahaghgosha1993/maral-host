@@ -1,0 +1,14 @@
+/*body, html {*/
+/*  height: 100%;*/
+/*}*/
+.bg-default {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    linear-gradient(0deg, #EEEEEE, #EEEEEE);
+
+}
+.text-align-right{
+    text-align: right;
+}
+.mt24{
+    margin-top: 24px !important;
+}

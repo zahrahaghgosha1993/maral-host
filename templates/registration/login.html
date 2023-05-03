@@ -1,0 +1,76 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block title %} Login {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+    <!-- Page content -->
+
+    <!-- <div class="login-container"> -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-lg-6  d-lg-block d-md-block d-xxl-block d-xl-block d-sm-none d-xs-none"> -->
+            <div class="d-none d-lg-block col-lg-6 image-container">
+                <img class="login-image" src="/static/assets/images/login_image.png">
+            </div>
+            <div class="col-12 col-lg-6 form-container">
+                <div class="form-card">
+                    <div class="row">
+                        <span class="col- login-title"> Login </span>
+                        <span class="col- login-message"> Welcome back! Please enter your details.</span>
+                    </div>
+                    <div>
+                        <div class="extra-login-box" style="margin-bottom: 8px">
+                            <img src="/static/assets/images/google_Vector.png" alt="">
+                                <span>Sign in with Googlev</span>
+                        </div>
+                        <div class="extra-login-box">
+                            <img src="/static/assets/images/google_Vector.png" alt="">
+                            <span>Sign in with Github</span>
+                        </div>
+                    </div>
+                    <div>
+                       <div class="login-slicer"><span>or Sign in with Email</span></div>
+                         <form method="POST" action="{% url 'user_login' %}">
+
+                            {% csrf_token %}
+                             <div class="form-filed" style="margin-bottom: 24px">
+                                <span class="text-muted">Email</span>
+                                <input id="username" name="username" type="text" placeholder="Enter your email address" class="form-input">
+                             </div>
+                             <div class="form-filed">
+                                <span class="text-muted"> Password </span>
+                                <input id="id_password" name="password" type="password" placeholder="Password" class="form-input">
+                            </div>
+                             <div class=" row mt32">
+                                 <div class="col-lg-6">
+                                     <input type="checkbox" name="remember" id="remember" class="checkbox-round">
+                                     <label class="text-muted ms-2" for="remember">Remember me</label></div>
+                                 <div class="col-lg-6 text-align-right">
+                                     <a href="#" class="forget-pass-btn">Forgot Password </a>
+                                 </div>
+
+                        </div>
+                             <button id="submit" type="submit" class="login-btn mt32">Login</button>
+                             <div class="mt24 text-center">
+                             <span id="sign-up-link">Not registered yet? <a href="#" class="text-decoration-none ">Create an Account</a> </span>
+
+                             </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="web-btn">
+                    <img src="/static/assets/images/Ellipse.png" alt="">
+                    <span>Single Sign-On (SSO)</span>
+            </div>
+                </div>
+            </div>
+    </div>
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}
