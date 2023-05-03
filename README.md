@@ -2,7 +2,7 @@
 
 In the project directory, you can run:
 
-### `docker compose up --build `
+ `docker compose up --build `
 
 Open [http://localhost:8008](http://localhost:8008) to view it in the browser.
 
