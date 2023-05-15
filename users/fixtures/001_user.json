@@ -14,5 +14,22 @@
       "groups": [],
       "user_permissions": []
     }
+  },
+  {
+    "model": "users.maraluser",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$9LdDE0cUVORSaQjLrmSVl7$dlYjjOZ4Knp6sp5q4ZKrNnjLs6L+gW7EpY07hUymMmc=",
+      "last_login": "2023-05-01T18:14:00.593Z",
+      "first_name": "",
+      "last_name": "",
+      "email": "user@email.com",
+      "active": true,
+      "staff": true,
+      "admin": false,
+      "groups": [],
+      "user_permissions": []
+    }
   }
+
 ]
